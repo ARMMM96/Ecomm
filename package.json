@@ -11,11 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "hyper-rose-pine": "^1.0.7",
-    "hyperalfred": "^0.1.1",
-    "hyperterm-adventurous": "^1.0.0",
-    "hyperterm-cobalt2-theme": "^2.0.0",
-    "nodemon": "^2.0.7",
-    "xterm-addon-ligatures": "^0.3.0"
+    "nodemon": "^2.0.7"
   }
 }
