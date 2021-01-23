@@ -83,20 +83,4 @@ class UsersRepository {
     }
 }
 
-const test = async () => {
-
-    const repo = new UsersRepository('users.json');
-
-    // const user = await repo.getOneBy({ asdsaf: 'a99b0f9e' });  // Will return undefined
-    // const user = await repo.getOneBy({ email: 'Ahmed@gmail.com' });
-    // const user = await repo.getOneBy({ id: 'a99b0f9e' });
-    // const user = await repo.getOneBy({ password: 'myPassword' });
-    // const user = await repo.getOneBy({ email: 'Ahmed@gmail.com', password: 'myPassword' });
-    // const user = await repo.getOneBy({ id: '84bcbb88', email: 'Ahmed@gmail.com', password: 'myPassword' });
-
-    console.log(user);
-
-
-};
-
-test();
+module.exports = new UsersRepository('users.json');
