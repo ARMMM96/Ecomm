@@ -1,14 +1,14 @@
 const express = require('express');
 const { check, validationResult } = require('express-validator');
 const usersRepo = require('../../repositories/users');
-const singupTemplate = require('../../views/admin/auth/signup');
+const signupTemplate = require('../../views/admin/auth/signup');
 const signinTemplate = require('../../views/admin/auth/signin');
 const { requireEmail, requirePassword, requirePasswordConfirmation } = require('./validators');
 
 const router = express.Router();
 
 router.get('/signup', (req, res) => {
-    res.send(singupTemplate({ req }));
+    res.send(signupTemplate({ req }));
 });
 
 
@@ -23,8 +23,10 @@ router.post(
     ],
     async (req, res) => {
         const errors = validationResult(req);
-        console.log(errors);
 
+        if (!errors.isEmpty()) {
+            return res.send(signupTemplate({ req, errors }));
+        }
 
         const { email, password, passwordConfirmation } = req.body;
         const user = await usersRepo.create({ email, password });
