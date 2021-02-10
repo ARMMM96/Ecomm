@@ -21,16 +21,18 @@ class UsersRepository {
     }
 
     async getAll() {
-        return JSON.parse(await fs.promises.readFile(this.filename, {
-            encoding: 'utf8'
-        }));
+        return JSON.parse(
+            await fs.promises.readFile(this.filename, {
+                encoding: 'utf8'
+            })
+        );
     }
 
     async create(attrs) {
 
         attrs.id = this.randomId();
 
-        const salt = crypto.pseudoRandomBytes(8).toString('hex');
+        const salt = crypto.randomBytes(8).toString('hex');
         const buf = await scrypt(attrs.password, salt, 64);
 
 
@@ -68,14 +70,14 @@ class UsersRepository {
 
     async getOne(id) {
         const records = await this.getAll();
-        return records.find(record => record.id == id);
+        return records.find(record => record.id === id);
     }
 
 
     async delete(id) {
         const records = await this.getAll();
-        const fitleredRecords = records.filter(record => record.id !== id);
-        await this.writeAll(fitleredRecords);
+        const filteredRecords = records.filter(record => record.id !== id);
+        await this.writeAll(filteredRecords);
     }
 
     async update(id, attrs) {

@@ -1,14 +1,9 @@
-const layout = require("../layout");
+const layout = require('../layout');
 
-const getError = (errors, prop) => {
-    try {
-        return errors.mapped()[prop].msg;
-    } catch (err) {
-        return '';
-    }
-};
+const { getError } = require('../../helpers');
 
-module.exports = ({ req, errors }) => {
+
+module.exports = ({ errors, req }) => {
     return layout({
         content: `
             <div>
@@ -18,11 +13,12 @@ module.exports = ({ req, errors }) => {
                     ${getError(errors, 'email')}
                     <input name="password" placeholder="password"/>
                     ${getError(errors, 'password')}
-                    <input name="passwordConfirmation" placeholder="password confirmation"/>.
+                    <input name="passwordConfirmation" placeholder="password confirmation"/>
                     ${getError(errors, 'passwordConfirmation')}
 
                     <button>Sign up</button>
                 </form>
             </div>
-`});
+`
+    });
 };
