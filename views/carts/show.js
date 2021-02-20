@@ -8,26 +8,27 @@ module.exports = ({ items }) => {
 		.map((item) => {
 			return `
         <div class="cart-item message">
-          <h3 class="subtitle">${item.product.title}</h3>
-          <div class="cart-right">
+		<h3 class="subtitle">${item.product.title}</h3>
+		<div class="cart-right">
             <div>
-              $${item.product.price}  X  ${item.quantity} = 
+			$${item.product.price}  X  ${item.quantity} = 
             </div>
             <div class="price is-size-4">
               $${item.product.price * item.quantity}
             </div>
             <div class="remove">
-              <form method="POST">
-                <button class="button is-danger">                  
-                  <span class="icon is-small">
-                    <i class="fas fa-times"></i>
-                  </span>
-                </button>
-              </form>
+			<form method="POST" action="/cart/products/delete">
+				<input hidden value="${item.id}" name="itemId"/> 
+				<button class="button is-danger">                  
+			<span class="icon is-small">
+				<i class="fas fa-times"></i>
+			</span>
+			</button>
+			</form>
             </div>
-          </div>
+		</div>
         </div>
-      `;
+	`;
 		})
 		.join('');
 
