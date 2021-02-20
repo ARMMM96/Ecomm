@@ -1,20 +1,20 @@
 [
-	{
-		"title": "Switter",
-		"price": "789",
-		"image": "",
-		"id": "1d3f0ec5"
-	},
-	{
-		"title": "Jacket",
-		"price": 569.994,
-		"image": "",
-		"id": "237c9bcb"
-	},
-	{
-		"title": "Facebook",
-		"price": 414.994,
-		"image": "",
-		"id": "dd5cfc98"
-	}
+  {
+    "title": "Switter",
+    "price": "789",
+    "image": "",
+    "id": "1d3f0ec5"
+  },
+  {
+    "title": "Jacket",
+    "price": 569.994,
+    "image": "",
+    "id": "237c9bcb"
+  },
+  {
+    "title": "A new Product",
+    "price": 99,
+    "image": "",
+    "id": "dd5cfc98"
+  }
 ]
